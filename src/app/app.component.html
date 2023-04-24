@@ -1,7 +1,7 @@
-<mat-toolbar color="primary">
+<mat-toolbar class='navbar'>
   <span> Flow State</span>
   <div>
-    <button>
+    <button mat-mini-fab (click)="sidenav?.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <button>
@@ -9,12 +9,15 @@
     </button>
   </div>
 </mat-toolbar>
+
 <mat-sidenav-container>
-  <mat-sidenav>Start</mat-sidenav>
-  <mat-sidenav position="end">End</mat-sidenav>
-  <section>
-    <mat-icon>house</mat-icon>
-    <span>Home</span>
-  </section>
+  <mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+    <section>
+      <mat-icon>house</mat-icon>
+      <p> Home</p>
+    </section>
+  </mat-sidenav>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </mat-sidenav-container>
-<router-outlet></router-outlet>

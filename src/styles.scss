@@ -9,29 +9,42 @@ html, body { height: 100%;}
 
 body {font-family: Roboto, "Helvetica Neue", sans-serif;}
 
+
 mat-toolbar{
-  background-color: gray;
+  box-shadow: 0 0 5px 5px red;
+  position: relative;
+
+}
+
+.navbar{
   height: 7.5%;
   display: flex;
   justify-content: space-between;
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
-    0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  background-color: #213a5c;
+  box-shadow: 3px 0 6px black;
+  z-index: 2;
+  color: white;
 
+}
+
+
+mat-sidenav-container{
+  height: 100%;
+}
+
+mat-sidenav{
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.24);
+  width: 200px;
   div{
-    border: 1px solid green;
+
+    padding: 0.5em;
   }
 }
 
-mat-sidenav-container{
-  width: 15%;
-  background-color: lightblue;
-  height: 100%;
-
-  section {
-    display: flex;
-    justify-content: flex-start;
-    gap: 0.5rem;
-    align-items: center;
-    border: 1px solid magenta;
-  }
+section{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5em;
 }
