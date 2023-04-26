@@ -47,4 +47,10 @@ section{
   align-items: center;
   justify-content: flex-start;
   gap: 0.5em;
+
+  &.active{
+    color: #213a5c;
+    font-weight: 800;
+  }
+
 }

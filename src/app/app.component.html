@@ -12,9 +12,11 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side" opened class="app-sidenav">
-    <section>
-      <mat-icon>house</mat-icon>
-      <p> Home</p>
+    <section *ngFor="let link of links"
+      [routerLink]="link.path" routerLinkActive="active"
+    >
+      <mat-icon>{{link.icon}}</mat-icon>
+      <p>{{link.title}}</p>
     </section>
   </mat-sidenav>
   <div class="container">

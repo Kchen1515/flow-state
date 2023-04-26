@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'flow-state';
+  links = [
+    {path: '/home', icon:'home', title: 'Home'},
+    {path: '/complete', icon:'check_circle', title: 'Complete'},
+  ]
 }

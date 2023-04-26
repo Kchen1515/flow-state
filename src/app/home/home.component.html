@@ -1,11 +1,69 @@
 <div class="container">
   <div class="list-container content">
+
     <h2>To-Do List</h2>
     <div>
-      content
+      <mat-card *ngFor="let task of tasks" (click)="selectTask(task)">
+        <mat-card-content>
+          <div class="task-container">
+            <h3>{{task.title}}</h3>
+              <p>{{task.description}}</p>
+              <button
+                mat-icon-button
+                color="red"
+                (click)="deleteTask(task.id); $event.stopImmediatePropagation()"
+                class="delete-task-btn"
+              >
+                <mat-icon class="delete-task-icon" >delete</mat-icon>
+              </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
   <div class="details-container content">
     <h2>Details</h2>
+    <mat-card>
+      <form #form="ngForm">
+        <mat-card-content class="form-container">
+          <mat-form-field >
+            <input matInput name="title" placeholder="title" type="text" required [(ngModel)]="selectedTask.title">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input
+            matInput
+            placeholder="Description"
+            [(ngModel)]="selectedTask.description"
+            name="description"
+            type="text">
+          </mat-form-field>
+          <section class="full-width">
+            <h4>{{selectedTask.percentComplete}}% Complete</h4>
+            <mat-slider
+              ngDefaultControl
+              class="full-width"
+              min="0" max="100"
+              thumbLabel
+              name="percentComplete">
+              <input matSliderThumb name="percentComplete"[(ngModel)]="selectedTask.percentComplete">
+            </mat-slider>
+          </section>
+          <section>
+            <mat-checkbox [(ngModel)]="selectedTask.favorite" name="favorite">
+              Favorite
+            </mat-checkbox>
+          </section>
+          <!-- <span *ngIf="selectedTask?.id; else elseBlock">
+            {{selectedTask.title | titlecase}}
+          </span>
+          <ng-template #elseBlock>Select task for more details</ng-template> -->
+        </mat-card-content>
+        <mat-card-actions>
+          <button type="button" mat-button (click)="resetForm()">Cancel</button>
+        </mat-card-actions>
+      </form>
+      <pre>{{form.value | json}}</pre>
+      <pre>{{form.valid | json}}</pre>
+    </mat-card>
   </div>
 </div>
