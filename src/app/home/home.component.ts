@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../common/models/task';
+import { TasksService } from '../common/services/tasks.service';
 const emptyTask: Task = {
   id: '',
   title: '',
@@ -15,37 +16,53 @@ const emptyTask: Task = {
 })
 
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  tasks = [
-    {
-      id: 1,
-      title: "Take out the trash",
-      description: "I need to take out the trash at this time",
-      percentComplete: 25,
-      favorite: true
-    },
-    {
-      id: 2,
-      title: "Homework",
-      description: "I have a math assignment due at a certain time",
-      percentComplete: 60,
-      favorite: false
-    }
-  ]
+  tasks: Task[] = [];
+
+  constructor(private taskService: TasksService){}
+
+  ngOnInit(): void {
+    // this.tasks = this.taskService.tasks
+    this.fetchTask()
+  }
+
+
 
   selectedTask = emptyTask;
 
   selectTask(task:any){
-    this.selectedTask = task;
+    this.selectedTask = {...task};
+  }
+
+  fetchTask(){
+    this.taskService.all()
+      .subscribe((result: any) => this.tasks = result)
+  }
+  saveTask(task: Task){ // SIMILAR TO AN UPSERT FUNCTION
+    if(task.id){
+      this.updateTask(task);
+    } else {
+      this.createTask(task);
+    }
+  }
+
+  createTask(task: Task){
+    this.taskService.create(task)
+      .subscribe(result => this.fetchTask())
+  }
+
+  updateTask(task: Task){
+    this.taskService.update(task)
+      .subscribe(result => this.fetchTask())
   }
 
   deleteTask(taskId:any){
-    console.log(`Delete Task ${taskId}`)
+    this.taskService.delete(taskId)
+      .subscribe(result => this.fetchTask())
   }
 
   resetForm(){
     this.selectTask({...emptyTask})
   }
-
 }

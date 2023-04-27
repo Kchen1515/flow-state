@@ -2,7 +2,7 @@
   <div class="list-container content">
 
     <h2>To-Do List</h2>
-    <div>
+    <div *ngIf="tasks.length > 0; else elseBlock">
       <mat-card *ngFor="let task of tasks" (click)="selectTask(task)">
         <mat-card-content>
           <div class="task-container">
@@ -20,11 +20,14 @@
         </mat-card-content>
       </mat-card>
     </div>
+    <ng-template #elseBlock><div>
+      Add a Task
+    </div></ng-template>
   </div>
   <div class="details-container content">
     <h2>Details</h2>
     <mat-card>
-      <form #form="ngForm">
+      <form #form="ngForm" (submit)="saveTask(selectedTask)">
         <mat-card-content class="form-container">
           <mat-form-field >
             <input matInput name="title" placeholder="title" type="text" required [(ngModel)]="selectedTask.title">
@@ -59,6 +62,8 @@
           <ng-template #elseBlock>Select task for more details</ng-template> -->
         </mat-card-content>
         <mat-card-actions>
+          <button type="submit" [disabled]="form.invalid" mat-button color="primary">Save</button>
+
           <button type="button" mat-button (click)="resetForm()">Cancel</button>
         </mat-card-actions>
       </form>

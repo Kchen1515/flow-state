@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-
 import { CompleteComponent } from './complete/complete.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,14 +15,14 @@ import { CompleteComponent } from './complete/complete.component';
     AppComponent,
     HomeComponent,
     CompleteComponent,
-
   ],
   imports: [
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
