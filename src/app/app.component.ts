@@ -10,5 +10,7 @@ export class AppComponent {
   links = [
     {path: '/home', icon:'home', title: 'Home'},
     {path: '/complete', icon:'check_circle', title: 'Complete'},
+    {path: '/todo', icon:'list', title: 'To Do List'},
+
   ]
 }

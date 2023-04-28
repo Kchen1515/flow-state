@@ -1,0 +1,14 @@
+.container{
+  height: 100%;
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  border: 1px solid magenta;
+  gap:1em
+}
+
+.content{
+  width: 50%;
+}

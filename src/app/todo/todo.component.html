@@ -1,1 +1,7 @@
-<p>todo works!</p>
+<div class="container">
+  <app-todolist class="content"[tasks]="tasks"
+    (selected)="selectTask($event)"
+    (deleted)="deleteTask($event)"
+  ></app-todolist>
+  <app-tododetails class="content"[selectedTask]="selectedTask"  (saved)="saveTask($event)" (cancel)="resetForm()"></app-tododetails>
+</div>

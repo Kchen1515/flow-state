@@ -1,0 +1,24 @@
+<div class="list-container">
+  <h2>To-Do List</h2>
+  <div *ngIf="tasks.length > 0; else elseBlock" class="list-item-container">
+    <mat-card *ngFor="let task of tasks" (click)="selected.emit(task)">
+      <mat-card-content>
+        <div class="task-container">
+          <h3>{{task.title}}</h3>
+            <p>{{task.description}}</p>
+            <button
+              mat-icon-button
+              color="red"
+              (click)="deleted.emit(task.id); $event.stopImmediatePropagation()"
+              class="delete-task-btn"
+            >
+              <mat-icon class="delete-task-icon" >delete</mat-icon>
+            </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <ng-template #elseBlock>
+    <div> Add a Task</div>
+  </ng-template>
+</div>

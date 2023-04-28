@@ -1,6 +1,9 @@
-<div class="container">
-  <div class="list-container content">
+<div>
+  <h1>THIS IS THE DASHBOARD</h1>
+</div>
 
+<!-- <div class="container">
+  <div class="list-container content">
     <h2>To-Do List</h2>
     <div *ngIf="tasks.length > 0; else elseBlock">
       <mat-card *ngFor="let task of tasks" (click)="selectTask(task)">
@@ -56,10 +59,6 @@
               Favorite
             </mat-checkbox>
           </section>
-          <!-- <span *ngIf="selectedTask?.id; else elseBlock">
-            {{selectedTask.title | titlecase}}
-          </span>
-          <ng-template #elseBlock>Select task for more details</ng-template> -->
         </mat-card-content>
         <mat-card-actions>
           <button type="submit" [disabled]="form.invalid" mat-button color="primary">Save</button>
@@ -67,8 +66,6 @@
           <button type="button" mat-button (click)="resetForm()">Cancel</button>
         </mat-card-actions>
       </form>
-      <pre>{{form.value | json}}</pre>
-      <pre>{{form.valid | json}}</pre>
     </mat-card>
   </div>
-</div>
+</div> -->

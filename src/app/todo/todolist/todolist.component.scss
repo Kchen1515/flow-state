@@ -1,0 +1,10 @@
+.list-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  mat-card{
+    margin-bottom: 1em;
+    border: 1px solid magenta;
+  }
+}
