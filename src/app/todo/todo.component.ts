@@ -22,7 +22,6 @@ export class TodoComponent {
   constructor(private taskService: TasksService){}
 
   ngOnInit(): void {
-    // this.tasks = this.taskService.tasks
     this.fetchTask()
   }
 

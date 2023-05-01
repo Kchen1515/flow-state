@@ -2,7 +2,7 @@
   "tasks": [
     {
       "id": "1",
-      "title": "Secondfd",
+      "title": "Second",
       "description": "Testing",
       "percentComplete": 20,
       "favorite": true

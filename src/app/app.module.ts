@@ -6,21 +6,22 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-import { CompleteComponent } from './complete/complete.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TodolistComponent } from './todo/todolist/todolist.component';
 import { TododetailsComponent } from './todo/tododetails/tododetails.component';
 import { TodoComponent } from './todo/todo.component';
+import { CompleteComponent } from './todo/complete/complete.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CompleteComponent,
     TodolistComponent,
     TododetailsComponent,
-    TodoComponent
+    TodoComponent,
+    CompleteComponent
+
   ],
   imports: [
     MaterialModule,
